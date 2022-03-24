@@ -12,7 +12,8 @@ public class Test1 {
         //E_TMedicamentsEntity entity=daoMedicament.find(1234,E_TMedicamentsEntity.class);
         //
         // System.out.println(daoMedicament.find(1234, E_TMedicamentsEntity.class));
-        System.out.println(daoMedicament.findAll(E_TMedicamentsEntity.class));
+        //System.out.println(daoMedicament.findAll(E_TMedicamentsEntity.class));
+        daoMedicament.deleteAll(E_TMedicamentsEntity.class);
 
     }
 }

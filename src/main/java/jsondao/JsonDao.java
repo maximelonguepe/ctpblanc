@@ -131,8 +131,16 @@ public class JsonDao<T> implements Dao<T> {
 
     @Override
     public boolean deleteAll(Class<T> tClass) {
+        FileWriter myWriter;
+        try {
+            myWriter = new FileWriter("src/main/resources/" + tClass.getSimpleName() + ".json");
+            myWriter.write("");
+            myWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        return false;
+        return true;
     }
 
     @Override
