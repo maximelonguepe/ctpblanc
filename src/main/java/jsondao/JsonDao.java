@@ -89,6 +89,9 @@ public class JsonDao<T> implements Dao<T> {
 
     @Override
     public List<T> findAll(Class<T> tClass) {
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .create();
         ArrayList<T> list=new ArrayList<T>();
         file = new File("src/main/resources/" + tClass.getSimpleName() + ".json");
         BufferedReader br = null;
@@ -107,13 +110,17 @@ public class JsonDao<T> implements Dao<T> {
         JSONArray array = (JSONArray) ob;
         for (int i = 0; i < array.size(); i++) {
             JSONObject object = (JSONObject) array.get(i);
+            String test =object.toJSONString();
+            list.add(gson.fromJson(test,tClass));
+
         }
 
-        return null;
+        return list;
     }
 
     @Override
     public boolean update(T obj) {
+
         return false;
     }
 
